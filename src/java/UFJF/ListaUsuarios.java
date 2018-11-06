@@ -55,18 +55,19 @@ public class ListaUsuarios extends HttpServlet {
                 try (PrintWriter out = response.getWriter()) {
                     /* TODO output your page here. You may use following sample code. */
                     out.println("<!DOCTYPE html>");
-                    out.println("<html>");
-                    out.println("<head>");
                     out.println("<title>Usuários Cadastrados</title>");            
                     out.println("</head>");
+                    out.println("<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.min.css'>");
                     out.println("<body>");
                     out.println("<div align='center'>");
                     out.println("<h1>Usuários Cadastrados</h1>");
+                    out.println("<ul class='list-group'>");
                     while (rs.next()) {
-                        out.println(rs.getString("login")+"<br>");
+                        out.println("<li class='list-group-item'>"+rs.getString("login")+"</li>");
                     }
+                    out.println("</ul></br>");
                     out.println("<form action='Controller' method='POST'>");
-                    out.println("<button name='name' value='Menu' type='submit'> Voltar </button>");
+                    out.println("<button name='name' value='Menu' type='submit' class='btn btn-dark'> Voltar </button>");
                     out.println("</form>");
                     out.println("</div>");
                     out.println("</body>");

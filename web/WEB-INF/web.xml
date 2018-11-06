@@ -57,10 +57,6 @@
         <url-pattern>/Rotator</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Valida</servlet-name>
-        <url-pattern>/Valida</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ListaUsuarios</servlet-name>
         <url-pattern>/ListaUsuarios</url-pattern>
     </servlet-mapping>

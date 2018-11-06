@@ -5,38 +5,41 @@
 
 <!-- seção de corpo do documento -->
 <body>
-    <div align="center">
+    <div class="jumbotron">
+        <div align="center" class ="container">
 
-        <h1>Informe Usuário e Senha</h1>
-        <% // inicia scriptlet                                   
+            <h1>Informe Usuário e Senha</h1>
+            <form action = "Controller" method = "post">
 
-            String msg = (String) request.getAttribute("mensagem");
+                <div>
+                    <label>Usuário:&nbsp;&nbsp;&nbsp;</label>
+                    <div><input type = "text" name = "usuario"/></div>
+                </div>
 
-            if (msg != null && msg.equals("erro")) {
-        %> <%-- fim de scriptlet para inserir de dados de template fixa --%> 
+                <div>
+                    <label>Senha:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <div><input type = "password" name = "senha"/></div>
+                </div>
 
-        <p>
-            Usuário ou senha inválidos!
-        </p>
+                <% // inicia scriptlet                                   
+                    String msg = (String) request.getAttribute("mensagem");
 
-        <% // continua scriptlet                                
+                    if (msg != null && msg.equals("erro")) {
+                %> <%-- fim de scriptlet para inserir de dados de template fixa --%> 
 
-            } // fim do if
+                <div class="alert alert-warning" role="alert">
+                    Usuário ou senha inválidos!
+                </div>
 
-        %> <%-- fim de scriptlet para inserir de dados de template fixa --%> 
-        <form action = "Controller" method = "post">
-            <p>
-                <label>Usuário:</label>
-                <input type = "text" name = "usuario" />
-            </p>
+                <% // continua scriptlet                                
 
-            <p>
-                <label>Senha::&nbsp;&nbsp;&nbsp;</label>
-                <input type = "password" name = "senha" />
-            </p>
+                    } // fim do if
 
-            <button name='name' value='Login' type='submit'>Enviar</button>
-        </form>
+                %> <%-- fim de scriptlet para inserir de dados de template fixa --%> 
+
+                <button name='name' value='Login' type='submit' class="btn btn-dark">Enviar</button>
+            </form>
+        </div>
     </div>
 
-<%@ include file="rodape.jsp"%>
+    <%@ include file="rodape.jsp"%>
