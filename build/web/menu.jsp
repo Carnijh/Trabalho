@@ -10,10 +10,6 @@
 <title>Menu Principal</title>
 </head>
 <body>
-<%
-    String cont = (String)getServletContext().getAttribute("usuarios");
-%>
-    <p>Usuários: <%=cont%></p>
     <div class="jumbotron">
         <div align="center" class="container">
             <h1> Menu Principal </h1>

@@ -13,5 +13,7 @@
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
         <%
             String format = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+            int contador = (Integer)getServletContext().getAttribute("usuarios");
         %>
-        <p><%=format%></p>
+    
+        <p>Data: <%=format%> &nbsp;&nbsp;Usuários: <%=contador%></p>

@@ -27,23 +27,22 @@ public class Listener implements ServletContextListener, HttpSessionListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         servletContext = sce.getServletContext();
-        servletContext.setAttribute("usuarios", Integer.toString(cont));
+        servletContext.setAttribute("usuarios", cont);
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        
     }
 
     @Override
     public void sessionCreated(HttpSessionEvent se) {
         cont += 1;
-        servletContext.setAttribute("usuarios", Integer.toString(cont));
+        servletContext.setAttribute("usuarios", cont);
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
         cont -= 1;
-        servletContext.setAttribute("usuarios", Integer.toString(cont));
+        servletContext.setAttribute("usuarios", cont);
     }
 }
