@@ -16,6 +16,20 @@
         <param-name>usuarios</param-name>
         <param-value>0</param-value>
     </context-param>
+    <filter>
+        <description>Gerenciamento de Sessão</description>
+        <filter-name>Filtro</filter-name>
+        <filter-class>UFJF.Filtro</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filtro</filter-name>
+        <url-pattern>/</url-pattern>
+        <url-pattern>/menu.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Filtro</filter-name>
+        <servlet-name>ListaUsuarios</servlet-name>
+    </filter-mapping>
     <listener>
         <description>ServletContextListener</description>
         <listener-class>UFJF.Listener</listener-class>

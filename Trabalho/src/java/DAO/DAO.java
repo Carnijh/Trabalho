@@ -16,7 +16,7 @@ public class DAO implements UsuarioDAO {
 
     // Pega senha do danco de dados
     String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
-    String DB_URL = "jdbc:derby://localhost:1527/usuarios";
+    String DB_URL = "jdbc:derby://localhost:1527/usuarioDB";
 
     @Override
     public boolean login(Usuario a, String usuario, String senha) {
@@ -36,7 +36,7 @@ public class DAO implements UsuarioDAO {
             // Execute SQL query
             stmt = (Statement) con.createStatement();
             String sql;
-            sql = "SELECT login, senha FROM APP.USUARIOS where upper(login) = '" + a.getNome().toUpperCase() + "' and senha='" + a.getSenha() + "'";
+            sql = "SELECT usuario, senha FROM X.LOGIN where upper(usuario) = '" + a.getNome().toUpperCase() + "' and senha='" + a.getSenha() + "'";
             ResultSet rs = stmt.executeQuery(sql);
             // Extract data from result set
             if (rs.next()) {
@@ -115,7 +115,7 @@ public class DAO implements UsuarioDAO {
             // Execute SQL query
             stmt = (Statement) conn.createStatement();
             String sql;
-            sql = "SELECT login FROM APP.USUARIOS ORDER BY login";
+            sql = "SELECT usuario FROM X.LOGIN ORDER BY usuario";
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {

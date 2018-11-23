@@ -1,7 +1,7 @@
-<%
+<!--%
     session = request.getSession(false);
     if(session.getAttribute("loggedIn") != null) {
-%>
+%-->
 <%@include file="cabecalho.jsp"%>
 
 <jsp:useBean id = "rotator" scope = "session" class = "UFJF.Rotator" />
@@ -29,8 +29,8 @@
     </div>
 <%@include file="rodape.jsp"%>
 
-<%
+<!--%
     } else {
         response.sendRedirect("./index.jsp");
     }
-%>
+%-->

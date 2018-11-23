@@ -24,13 +24,13 @@ public class ListaUsuarios extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session = request.getSession(false);
-        if( session.getAttribute("loggedIn") != null ) {
+        //if( session.getAttribute("loggedIn") != null ) {
             // Pega usuário e senha para acessar o BD
             String usuario = (String) this.getServletContext().getInitParameter("usuario");
             String senha = (String) this.getServletContext().getInitParameter("senha");
 
             String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
-            String DB_URL = "jdbc:derby://localhost:1527/usuarios";
+            String DB_URL = "jdbc:derby://localhost:1527/usuarioDB";
             // Database credentials
             Connection conn = null;
             Statement stmt = null;
@@ -46,7 +46,7 @@ public class ListaUsuarios extends HttpServlet {
                 // Execute SQL query
                 stmt = conn.createStatement();
                 String sql;
-                sql = "SELECT login FROM APP.USUARIOS ORDER BY login ASC";
+                sql = "SELECT usuario FROM X.LOGIN ORDER BY usuario ASC";
 
                 ResultSet rs = stmt.executeQuery(sql);
 
@@ -63,7 +63,7 @@ public class ListaUsuarios extends HttpServlet {
                     out.println("<h1>Usuários Cadastrados</h1>");
                     out.println("<ul class='list-group'>");
                     while (rs.next()) {
-                        out.println("<li class='list-group-item'>"+rs.getString("login")+"</li>");
+                        out.println("<li class='list-group-item'>"+rs.getString("usuario")+"</li>");
                     }
                     out.println("</ul></br>");
                     out.println("<form action='Controller' method='POST'>");
@@ -92,9 +92,9 @@ public class ListaUsuarios extends HttpServlet {
                 resp = e.getMessage();
                 throw new ServletException(e);
             }
-        } else{
+        /*} else{
             response.sendRedirect("index.jsp");
-        }
+        }*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
